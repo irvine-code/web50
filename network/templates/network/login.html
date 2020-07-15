@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>LogIn</title>
+	{% load crispy_forms_tags %}
+  </head>
+  
+  <body style="background-color:#14171A;">
+   <div class="container">
+    <br>
+  <center>
+   <div  class="col-md-6">
+    {%if messages%}
+     {%for message in messages%}
+	 <div class="alert alert-success" role="alert">
+       <center> {{message}}</center>
+     </div>
+	 {%endfor%}
+   {%endif%}
+  </div>
+  </center>
+     <center>
+	 <div  class="col-12 col-md-6 pl-3 pr-3 pl-md-0 pr-md-0">
+	 <form style="margin-top:50px; padding:10px 50px 100px 50px;"method="POST">
+	   {%csrf_token%}
+	   <fieldset  class="form-group">
+	      <legend style="color: bisque;" class="border-bottom mb-4">Log In</legend>
+		  {{form | crispy }}
+	
+	   </fieldset>
+	   
+	   <div class="form-group">
+	   <button  class="btn btn-outline-info" type="submit">LogIn</button>
+	   </div>
+	 </form>
+	  <div class="pt-3">
+        <small class="text-muted">
+            Don't Have An Account? <a class="ml-2" href="{% url 'register' %}">SignUp</a>
+        </small>
+    </div>
+	 </div>
+	 </center>
+   
+   
+   </div>
+ 
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

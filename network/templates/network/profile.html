@@ -1,0 +1,21 @@
+{%extends "feed/base.html"%}
+    {%block title%}{{user.username}}'s Profile{%endblock%}
+{%block content%}
+<div class="container">
+   <div class="col-sm-2">
+    <div class="media">
+      <img style="height:150px; width:160px;"class="rounded-circle account-img img-fluid" src="{{user.profile.image.url}}" alt="generic placeholder image">
+	</div>
+   </div>
+   <br>
+   <h3>{{user.username}}</h3>
+   <br>
+   <a href="{%url 'profileupdate'%}"><button class="btn btn-outline-info" >Update</button></a>
+   <br>
+   <div class="card">
+     <div class="body">
+	    {{user.profile.bio}}
+	 </div>
+   </div>
+ </div>
+{%endblock%}
